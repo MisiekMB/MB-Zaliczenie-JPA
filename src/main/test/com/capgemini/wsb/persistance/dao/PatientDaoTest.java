@@ -34,17 +34,17 @@ public class PatientDaoTest {
 
     @Test
     public void testFindPatientsWithMoreThanXVisits() {
-        // Given
+        // given
         int numberOfVisits = 1;
 
-        // When
+        // when
         List<PatientEntity> patients = patientDao.findPatientsWithMoreThanXVisits(numberOfVisits);
 
-        // Then
+        // then
         assertThat(patients).isNotNull();
-        assertThat(patients.size()).isGreaterThan(0); // Ensure there are patients with more than 1 visit
+        assertThat(patients.size()).isGreaterThan(0); // Upewnia się, że lista pacjentów nie jest pusta
 
-        // Print out patient IDs and their visit counts for debugging
+        // Drukuje pacjentów, którzy mają więcej wizyt niż podana liczba
         for (PatientEntity patient : patients) {
             System.out.println("Patient ID: " + patient.getId() + ", Visit Count: " + patient.getVisits().size());
             assertThat(patient.getVisits().size()).isGreaterThan(numberOfVisits);
@@ -55,15 +55,15 @@ public class PatientDaoTest {
     @Test
     @Transactional
     public void testFindPatientsWithNextVisitAfter() {
-        // Given
+        // given
         LocalDateTime dateTime = LocalDateTime.of(2023, 11, 01, 0, 0);
 
-        // When
+        // when
         List<PatientEntity> patients = patientDao.findPatientsWithNextVisitAfter(dateTime);
 
-        // Then
+        // then
         assertThat(patients).isNotNull();
-        assertThat(patients.size()).isGreaterThan(0); // Assuming there are patients with nextVisitDateTime after the given date
+        assertThat(patients.size()).isGreaterThan(0);
         for (PatientEntity patient : patients) {
             assertThat(patient.getNextVisitDateTime()).isAfter(dateTime);
         }
