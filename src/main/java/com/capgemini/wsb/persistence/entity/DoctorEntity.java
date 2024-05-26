@@ -29,7 +29,7 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true) // Jeden do wielu, bo jeden lekarz może mieć wiele wizyt
 	private Set<VisitEntity> visits; // Dwukierunkowa relacja, strona rodzica
 
-	// Getters and setters
+	// Gettery i settery
 	public Long getId() {
 		return id;
 	}
