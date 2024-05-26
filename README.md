@@ -1,0 +1,1 @@
+Cały projekt JPA.
