@@ -19,7 +19,7 @@ public class PatientEntity {
 	private String email;
 	private String patientNumber;
 	private LocalDate dateOfBirth;
-	private LocalDateTime nextVisitDateTime; // New field for future visit
+	private LocalDateTime nextVisitDateTime; // Przyszła wizyta
 
 	@ManyToOne(optional = false) // Wiele do jednego, bo jeden adres może mieć wiele pacjentów
 	@JoinColumn(name = "address_id", nullable = false) // Jednostronna relacja, strona dziecka
