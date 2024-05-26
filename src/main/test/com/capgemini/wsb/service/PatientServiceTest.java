@@ -40,7 +40,7 @@ public class PatientServiceTest {
     @Transactional
     @BeforeEach
     void setUp() {
-        // Insert initial test data
+        // Wstawianie danych testowych
         address = new AddressEntity();
         address.setAddressLine1("Test Line 1");
         address.setAddressLine2("Test Line 2");
@@ -83,7 +83,7 @@ public class PatientServiceTest {
         entityManager.persist(patient);
         entityManager.persist(visit);
 
-        entityManager.flush();  // Ensure data is written to the database
+        entityManager.flush();  // Upewnienie się, że dane są zapisane w bazie
     }
 
     @Transactional
@@ -137,13 +137,13 @@ public class PatientServiceTest {
     @Test
     @Transactional
     public void testFindVisitsByPatientId() {
-        // Given
+        // given
         Long patientId = 1L;
 
-        // When
+        // when
         List<VisitTO> visits = patientService.findVisitsByPatientId(patientId);
 
-        // Then
+        // then
         assertThat(visits).isNotNull();
         assertThat(visits).hasSize(1); // Adjust the size based on actual data
         assertThat(visits.get(0).getDescription()).isEqualTo("wizyta nfz");
