@@ -15,7 +15,7 @@ public class DoctorTO implements Serializable {
     private Specialization specialization;
     private List<VisitTO> visits;
 
-    // Getters and setters
+    // Gettery i settery
     public Long getId() {
         return id;
     }

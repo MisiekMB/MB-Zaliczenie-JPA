@@ -13,11 +13,10 @@ public class PatientTO implements Serializable {
     private String email;
     private String patientNumber;
     private LocalDate dateOfBirth;
-    private LocalDateTime nextVisitDateTime; // New field for future visit
+    private LocalDateTime nextVisitDateTime; // Przyszła wizyta
     private AddressTO address;
     private Set<VisitTO> visits;
 
-    // Getters and setters for all fields, including the new one
     public Long getId() {
         return id;
     }
